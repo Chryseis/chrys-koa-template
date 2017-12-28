@@ -24,6 +24,7 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "forever": "^0.15.3",
     "node-windows": "^0.1.14",
     "nodemon": "^1.14.3"
   }
