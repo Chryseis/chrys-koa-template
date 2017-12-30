@@ -23,6 +23,7 @@ app.use(jwtKoa({secret}).unless({
     path: [/^\/api\/user/]
 }));
 
+//Injecting resJson
 app.use(resJson);
 
 //route load
