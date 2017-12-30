@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/12/30.
  */
-const user = require('../business').user;
+const user = require('../service').user;
 const {ResSuccModel, ResErrModel} = require('../infrastructure').ResModel;
 
 const getUser = async (ctx) => {
