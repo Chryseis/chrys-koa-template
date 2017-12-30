@@ -8,6 +8,7 @@ const bodyParser = require('koa-bodyparser');
 const jwt = require('jsonwebtoken');
 const jwtKoa = require('koa-jwt');
 const util = require('util');
+const opn = require('opn');
 const {jwtConfig} = require('./config');
 const router = require('./router');
 const {resJson} = require('./middleware');
@@ -31,6 +32,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 
 app.listen(3000, () => {
-    console.log('app listening 3000...')
+    console.log('app listening 3000...');
+    opn('http://localhost:3000');
 })
 

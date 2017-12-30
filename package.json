@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon --inspect server/startup.dev.js"
+    "start": "nodemon --inspect server/startup.dev.js"
   },
   "keywords": [
     "koa"
@@ -22,7 +22,6 @@
     "koa-static": "^4.0.2",
     "koa-webpack-middleware": "^1.0.7",
     "mysql2": "^1.5.1",
-    "opn": "^5.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -54,6 +53,7 @@
     "log4js": "^2.4.1",
     "node-windows": "^0.1.14",
     "nodemon": "^1.14.3",
+    "opn": "^5.1.0",
     "postcss-loader": "^2.0.9",
     "postcss-pxtorem": "^4.0.1",
     "style-loader": "^0.19.1",
