@@ -9,7 +9,8 @@ const jwt = require('jsonwebtoken');
 const jwtKoa = require('koa-jwt');
 const util = require('util');
 const {jwtConfig} = require('./config');
-const router=require('./router')
+const router = require('./router');
+const {resJson} = require('./middleware');
 
 const verify = util.promisify(jwt.verify)
 const secret = jwtConfig.secret;
@@ -19,12 +20,13 @@ app.use(bodyParser());
 
 //jwt
 app.use(jwtKoa({secret}).unless({
-    path: [/^\/api\/login/]
+    path: [/^\/api\/user/]
 }));
 
+app.use(resJson);
+
 //route load
-app.use(router.routes())
-    .use(router.allowedMethods());
+app.use(router.routes()).use(router.allowedMethods());
 
 
 app.listen(3000, () => {
