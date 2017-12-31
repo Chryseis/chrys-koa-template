@@ -14,15 +14,15 @@ export function getUser(name) {
             }
         });
 
-        let json = await res.json();
+        let {code, message,result} = await res.json();
 
-        if (json.code == 8200) {
-            return {
+        if (code == 8200) {
+            return dispatch({
                 type: Action.GET_USER,
-                name: json.name,
-                sex: json.sex,
-                birthday: json.birthday
-            }
+                name: result.name,
+                sex: result.sex,
+                birthday: result.birthday
+            })
         }
     }
 }

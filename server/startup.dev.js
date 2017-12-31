@@ -44,7 +44,6 @@ app.use(devMiddleware(compiler, {
 //hot reload
 app.use(hotMiddleware(compiler, {}))
 
-
 app.listen(3000, () => {
     console.log('app listening 3000...');
     opn('http://localhost:3000');

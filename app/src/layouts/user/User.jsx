@@ -17,11 +17,13 @@ class User extends React.Component {
     }
 
     componentDidMount() {
-        const {user, actions} = this.props;
+        const {actions} = this.props;
+        actions.getUser();
     }
 
     render() {
-        return <div>User</div>
+        const {user} = this.props;
+        return <div><span>{user.name}</span><span>{user.birthday}</span></div>
     }
 }
 
