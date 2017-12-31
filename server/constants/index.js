@@ -1,5 +1,5 @@
-const resInfo = require('./resInfo');
+const resEnum = require('./resEnum');
 
 module.exports={
-    resInfo
+    resEnum
 }

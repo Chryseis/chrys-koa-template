@@ -1,9 +1,9 @@
 /**
  * Created by Administrator on 2017/12/30.
  */
-const {resInfo} = require('../constants');
+const {resEnum} = require('../constants');
 
-const {succ, err} = resInfo;
+const {succ, err} = resEnum;
 
 class ResBaseModel {
     constructor(code, message, result) {

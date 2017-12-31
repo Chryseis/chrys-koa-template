@@ -5,10 +5,15 @@ const user = require('../service').user;
 const {ResSuccModel, ResErrModel} = require('../infrastructure').ResModel;
 
 const getUser = async (ctx) => {
-    let userEnt = await user.getUser('allen');
-    await ctx.json(new ResSuccModel(userEnt));
+    try {
+        let userEnt = await user.getUser('allen');
+        await ctx.json(new ResSuccModel(userEnt));
+    } catch (err) {
+        throw err;
+    }
+
 }
 
-module.exports={
+module.exports = {
     getUser
 }
