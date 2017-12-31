@@ -36,10 +36,12 @@ app.use(router.routes()).use(router.allowedMethods());
 
 app.use(require('koa-connect-history-api-fallback')());
 
+//webpack
 app.use(devMiddleware(compiler, {
     publicPath: '/'
 }))
 
+//hot reload
 app.use(hotMiddleware(compiler, {}))
 
 
