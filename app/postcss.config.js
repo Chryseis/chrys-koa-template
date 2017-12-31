@@ -6,7 +6,7 @@ module.exports = {
         require('autoprefixer'),
         process.env.NODE_ENV === "production" && require('postcss-pxtorem')({
             rootValue: 16,
-            propList: ['*', '!top', '!bottom']
+            propList: ['*']
         })
     ]
 }
