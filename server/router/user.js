@@ -11,5 +11,9 @@ user.get('/getuser', userController.getUser);
 
 user.put('/adduser', userController.addUser);
 
+user.get('/getuserList', userController.getUserList);
+
+user.delete('/removeuser', userController.deleteUser)
+
 
 module.exports = user;

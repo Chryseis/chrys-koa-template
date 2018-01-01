@@ -4,8 +4,8 @@
 module.exports = {
     plugins: [
         require('autoprefixer'),
-        process.env.NODE_ENV === "production" && require('postcss-pxtorem')({
-            rootValue: 16,
+        require('postcss-pxtorem')({
+            rootValue: 75,
             propList: ['*']
         })
     ]

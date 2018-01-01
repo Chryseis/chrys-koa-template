@@ -9,7 +9,8 @@ const initialState = {
     sex: 0,
     birthday: '',
     createUser: '',
-    createDate: ''
+    createDate: '',
+    userList: []
 }
 
 const reducersMap = {
@@ -18,6 +19,18 @@ const reducersMap = {
             name,
             sex,
             birthday
+        }
+    },
+    [Action.GET_USER_LIST]: (state, action) => {
+        return {
+            userList: action.userList
+        }
+    },
+    [Action.DELETE_USER]: (state, {id}) => {
+        let userList = _.cloneDeep(state.userList);
+        _.remove(userList, (user) => user.id === id);
+        return {
+            userList
         }
     }
 }

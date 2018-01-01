@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(baseWebpackConfig, {
     entry: {
-        index: ['webpack-hot-middleware/client?noInfo=false&reload=true',path.resolve(__dirname,'../src/index'),path.resolve(__dirname, '../src/common/css/index')]
+        index: ['webpack-hot-middleware/client?noInfo=false&reload=true', path.resolve(__dirname, '../src/index'), path.resolve(__dirname, '../src/common/css/index')]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -23,7 +23,8 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
             "React": "react",
-            "ReactDOM": "react-dom"
+            "ReactDOM": "react-dom",
+            "_": "lodash"
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',

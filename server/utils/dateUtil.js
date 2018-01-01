@@ -4,7 +4,7 @@
 const moment = require('moment');
 
 const dateToTimestamp = (date) => {
-    return moment(date).format('x')
+    return Number(moment(date).format('x'));
 }
 
 const timestampToDate = (timestamp) => {

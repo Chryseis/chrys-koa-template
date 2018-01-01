@@ -3,8 +3,8 @@
  */
 const {user} = require('../models');
 
-const getUserList =async ()=>{
-
+const getUserList = async () => {
+    return await user.findAll();
 }
 
 const getUser = async (name) => {
@@ -28,11 +28,16 @@ const updateUser = async (name, sex) => {
 
 }
 
-const deleteUser = async (name) => {
-
+const deleteUser = async (id) => {
+    return await user.destroy({
+        where: {
+            id
+        }
+    })
 }
 
 module.exports = {
+    getUserList,
     getUser,
     addUser,
     updateUser,

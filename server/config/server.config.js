@@ -3,7 +3,8 @@
  */
 const server = {
     devPort: 3000,
-    prodPort: 8089
+    prodPort: 8089,
+    staticPath:'./static'
 }
 
 module.exports = server;

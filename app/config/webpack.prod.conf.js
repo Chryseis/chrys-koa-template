@@ -10,10 +10,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(baseWebpackConfig, {
     entry: {
-        index: [path.resolve(__dirname,'../src/index'),path.resolve(__dirname, '../src/common/css/index')]
+        index: [path.resolve(__dirname, '../src/index'), path.resolve(__dirname, '../src/common/css/index')]
     },
     output: {
-        path: path.resolve(__dirname, '../server/static'),
+        path: path.resolve(__dirname, '../../server/static'),
         publicPath: '/',
         filename: 'js/[name].[chunkhash:8].js',
         chunkFilename: 'js/[id].[chunkhash:8].js',
@@ -33,7 +33,8 @@ module.exports = merge(baseWebpackConfig, {
         }),
         new webpack.ProvidePlugin({
             "React": "react",
-            "ReactDOM": "react-dom"
+            "ReactDOM": "react-dom",
+            "_": "lodash"
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
