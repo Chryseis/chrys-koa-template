@@ -3,6 +3,10 @@
  */
 const {user} = require('../models');
 
+const getUserList =async ()=>{
+
+}
+
 const getUser = async (name) => {
     return await user.findOne({
         where: {

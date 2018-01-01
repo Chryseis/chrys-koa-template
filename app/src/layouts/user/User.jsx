@@ -23,7 +23,12 @@ class User extends React.Component {
 
     render() {
         const {user} = this.props;
-        return <div><span>{user.name}</span></div>
+        return <div className="wrapper">
+            <ul className="user-tb">
+                <li className="user-tr"><span className="td">Name</span><span className="td">Sex</span><span className="td">Birthday</span><span className="td">Opeartion</span></li>
+                <li className="user-tr"><span className="td">Name</span><span className="td">Sex</span><span className="td">Birthday</span><span className="td">Opeartion</span></li>
+            </ul>
+        </div>
     }
 }
 
