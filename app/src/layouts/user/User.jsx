@@ -23,7 +23,7 @@ class User extends React.Component {
 
     render() {
         const {user} = this.props;
-        return <div><span>{user.name}</span><span>{user.birthday}</span></div>
+        return <div><span>{user.name}</span></div>
     }
 }
 

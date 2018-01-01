@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --config server/config/nodemon.json --inspect  server/startup.dev.js"
+    "start": "nodemon --config server/config/nodemon.json --inspect server/bin/www.js"
   },
   "keywords": [
     "koa"
@@ -22,6 +22,7 @@
     "koa-router": "^7.3.0",
     "koa-static": "^4.0.2",
     "koa-webpack-middleware": "^1.0.7",
+    "moment": "^2.20.1",
     "mysql2": "^1.5.1",
     "node-libs-browser": "^2.1.0",
     "punycode": "^2.1.0",

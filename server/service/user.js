@@ -11,6 +11,26 @@ const getUser = async (name) => {
     })
 }
 
-module.exports={
-    getUser
+const addUser = async (name, sex) => {
+    return await user.create({
+        name,
+        sex,
+        createDate: new Date()
+    });
+}
+
+
+const updateUser = async (name, sex) => {
+
+}
+
+const deleteUser = async (name) => {
+
+}
+
+module.exports = {
+    getUser,
+    addUser,
+    updateUser,
+    deleteUser
 }

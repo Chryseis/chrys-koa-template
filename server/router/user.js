@@ -9,5 +9,7 @@ let user = new Router();
 
 user.get('/getuser', userController.getUser);
 
+user.put('/adduser', userController.addUser);
+
 
 module.exports = user;

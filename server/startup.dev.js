@@ -9,7 +9,6 @@ const bodyParser = require('koa-bodyparser');
 const jwt = require('jsonwebtoken');
 const jwtKoa = require('koa-jwt');
 const util = require('util');
-const opn = require('opn');
 const webpackConfig = require('../app/config/webpack.dev.conf');
 const {jwtConfig} = require('./config');
 const router = require('./router');
@@ -20,12 +19,15 @@ const secret = jwtConfig.secret;
 const app = new Koa();
 const compiler = webpack(webpackConfig)
 
+app.on('error',(err, ctx)=>{
+    console.log(err)
+})
 
 app.use(bodyParser());
 
 //jwt
 app.use(jwtKoa({secret}).unless({
-    path: [/^(?!\/api)/, /^\/api\/user\/getuser/]
+    path: [/^(?!\/api)/, /^\/api\/user/]
 }));
 
 //Injecting resJson
@@ -38,14 +40,14 @@ app.use(require('koa-connect-history-api-fallback')());
 
 //webpack
 app.use(devMiddleware(compiler, {
-    publicPath: '/'
+    publicPath: '/',
+    noInfo:true
 }))
 
 //hot reload
 app.use(hotMiddleware(compiler, {}))
 
-app.listen(3000, () => {
-    console.log('app listening 3000...');
-    opn('http://localhost:3000');
-})
+
+module.exports=app;
+
 
