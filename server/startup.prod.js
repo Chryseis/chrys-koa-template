@@ -36,6 +36,4 @@ app.use(Static(path.resolve(__dirname, serverConfig.staticPath)));
 //route load
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3001, () => {
-    console.log('app listening 3001...')
-})
+module.exports = app;
