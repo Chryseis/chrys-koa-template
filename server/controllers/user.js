@@ -35,12 +35,12 @@ const getUser = async (ctx) => {
 const addUser = async (ctx) => {
     try {
         let params = ctx.request.body;
-        let userEnt = await user.addUser(params.name, params.sex);
+        let userEnt = await user.addUser(params.name, params.sex, timestampToDate(params.birthday));
         let resResult = new ResUser();
         resResult.id = userEnt.id;
         resResult.name = userEnt.name;
         resResult.sex = userEnt.sex;
-        resResult.birthday = dateToTimestamp(userEnt.sex);
+        resResult.birthday = dateToTimestamp(userEnt.birthday);
         resResult.createDate = dateToTimestamp(userEnt.createDate);
         resResult.createUser = userEnt.createUser;
         await ctx.json(new ResSuccModel(resResult));
@@ -52,7 +52,6 @@ const addUser = async (ctx) => {
 const deleteUser = async (ctx) => {
     try {
         let params = ctx.request.body;
-        console.log(params)
         await user.deleteUser(params.id);
         await ctx.json(new ResSuccModel({id: params.id}));
     } catch (err) {

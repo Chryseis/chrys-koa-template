@@ -15,10 +15,11 @@ const getUser = async (name) => {
     })
 }
 
-const addUser = async (name, sex) => {
+const addUser = async (name, sex, birthday) => {
     return await user.create({
         name,
         sex,
+        birthday,
         createDate: new Date()
     });
 }

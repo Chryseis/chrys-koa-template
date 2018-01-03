@@ -46,6 +46,31 @@ export function getUserList() {
     }
 }
 
+export function addUser(name, sex, birthday) {
+    return async (dispatch) => {
+        let res = await fetch('/api/user/adduser', {
+            method: 'put',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                sex,
+                birthday
+            })
+        });
+
+        let {code, message, result} = await res.json();
+
+        if (code == statusCode.SUCC) {
+            return dispatch({
+                type: Action.ADD_USER,
+                user: result
+            })
+        }
+    }
+}
+
 export function removeUser(id) {
     return async (dispatch) => {
         let res = await fetch('/api/user/removeuser', {

@@ -14,6 +14,7 @@ if (!sequelize) {
             idle: 30000,
             acquire: 60000,
         },
+        timezone: '+08:00',
         define: {timestamps: false, freezeTableName: true}
     })
 }

@@ -26,6 +26,13 @@ const reducersMap = {
             userList: action.userList
         }
     },
+    [Action.ADD_USER]: (state, action) => {
+        let userList = _.cloneDeep(state.userList);
+        userList.push(action.user);
+        return {
+            userList
+        }
+    },
     [Action.DELETE_USER]: (state, {id}) => {
         let userList = _.cloneDeep(state.userList);
         _.remove(userList, (user) => user.id === id);

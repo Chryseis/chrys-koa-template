@@ -12,7 +12,7 @@ const timestampToDate = (timestamp) => {
 }
 
 
-module.exports={
+module.exports = {
     dateToTimestamp,
     timestampToDate
 }
