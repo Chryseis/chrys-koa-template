@@ -3,7 +3,9 @@
  */
 
 const resJson = require('./resJson');
+const connectHttplog = require('./connectHttplog');
 
 module.exports = {
-    resJson
+    resJson,
+    connectHttplog
 }

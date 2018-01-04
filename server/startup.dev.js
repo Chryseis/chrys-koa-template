@@ -9,19 +9,24 @@ const bodyParser = require('koa-bodyparser');
 const jwt = require('jsonwebtoken');
 const jwtKoa = require('koa-jwt');
 const util = require('util');
+const log4js = require('log4js');
 const webpackConfig = require('../app/config/webpack.dev.conf');
-const {jwtConfig} = require('./config');
+const {jwtConfig, log4jsConfig} = require('./config');
 const router = require('./router');
-const {resJson} = require('./middleware');
+const {resJson, connectHttplog} = require('./middleware');
 
 const verify = util.promisify(jwt.verify)
 const secret = jwtConfig.secret;
 const app = new Koa();
-const compiler = webpack(webpackConfig)
+const compiler = webpack(webpackConfig);
 
-app.on('error',(err, ctx)=>{
+log4js.configure(log4jsConfig);
+
+app.on('error', (err, ctx) => {
     console.log(err)
-})
+});
+
+app.use(connectHttplog);
 
 app.use(bodyParser());
 
@@ -41,13 +46,13 @@ app.use(require('koa-connect-history-api-fallback')());
 //webpack
 app.use(devMiddleware(compiler, {
     publicPath: '/',
-    noInfo:true
+    noInfo: true
 }))
 
 //hot reload
 app.use(hotMiddleware(compiler, {}))
 
 
-module.exports=app;
+module.exports = app;
 
 

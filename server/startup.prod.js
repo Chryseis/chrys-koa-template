@@ -8,13 +8,16 @@ const bodyParser = require('koa-bodyparser');
 const jwt = require('jsonwebtoken');
 const jwtKoa = require('koa-jwt');
 const util = require('util');
-const {jwtConfig, serverConfig} = require('./config');
+const log4js = require('log4js');
+const {jwtConfig, serverConfig, log4jsConfig} = require('./config');
 const router = require('./router');
 const {resJson} = require('./middleware');
 
 const verify = util.promisify(jwt.verify)
 const secret = jwtConfig.secret;
 const app = new Koa();
+
+log4js.configure(log4jsConfig);
 
 app.on('error', (err, ctx) => {
     console.log(err)

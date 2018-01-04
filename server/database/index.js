@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/12/30.
  */
 const Sequelize = require('sequelize');
-const db = require('../config/db.config');
+const db = require('../config').mysqlConfig;
 
 let sequelize;
 if (!sequelize) {
