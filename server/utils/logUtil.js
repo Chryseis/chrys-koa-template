@@ -19,18 +19,20 @@ const formatHttp = (ctx, time) => {
     logText += "request method:" + request.method + "\n";
     logText += "request originalUrl:" + request.origin + "\n";
     logText += "request path:" + request.path + "\n";
-    if (request.method == 'GET') {
+    console.log(request);
+    if (request.method == 'GET' && request.path.indexOf('/api') > -1) {
         logText += "request query:" + JSON.stringify(request.query) + "\n";
     } else {
         logText += "request body:" + JSON.stringify(request.body) + "\n";
     }
     logText += "*********** http response ***********" + "\n";
     logText += "response status:" + response.status + "\n";
-    logText += "response body:" + JSON.stringify(response.body);
-    logText += "http elapsed time:" + time + "ms";
+    logText += "response body:" + JSON.stringify(response.body) + "\n";
+    logText += "http elapsed time:" + time + "ms" + "\n";
+    return logText;
 }
 
 
-module.exports={
+module.exports = {
     logHttp
 }
