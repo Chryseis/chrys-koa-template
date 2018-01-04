@@ -8,7 +8,9 @@ const errorLogger = log4js.getLogger('err');
 const otherLogger = log4js.getLogger('oth');
 
 const logHttp = (ctx, time) => {
-    httpLogger.info(formatHttp(ctx, time))
+    if (ctx.request.path.indexOf('/api') > -1) {
+        httpLogger.info(formatHttp(ctx, time))
+    }
 }
 
 const formatHttp = (ctx, time) => {
@@ -19,8 +21,7 @@ const formatHttp = (ctx, time) => {
     logText += "request method:" + request.method + "\n";
     logText += "request originalUrl:" + request.origin + "\n";
     logText += "request path:" + request.path + "\n";
-    console.log(request);
-    if (request.method == 'GET' && request.path.indexOf('/api') > -1) {
+    if (request.method == 'GET') {
         logText += "request query:" + JSON.stringify(request.query) + "\n";
     } else {
         logText += "request body:" + JSON.stringify(request.body) + "\n";
