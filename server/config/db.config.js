@@ -2,11 +2,11 @@
  * Created by Administrator on 2017/12/30.
  */
 const mysql = {
-    host: '127.0.0.1',
-    user: 'root',
-    database: 'test',
-    password: 'p@ssw0rd',
-    port:3306,
+    host: '183.134.100.150',
+    user: 'ami',
+    database: 'ami',
+    password: 'yylc0808ami',
+    port:3322,
     dialect:'mysql'
 }
 

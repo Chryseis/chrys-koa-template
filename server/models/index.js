@@ -1,8 +1,15 @@
 /**
  * Created by Administrator on 2017/12/29.
  */
-const user=require('./user');
+const fs = require('fs');
 
-module.exports={
-    user
-}
+let files = fs.readdirSync(__dirname);
+
+let models = files.filter((f) => {
+    return f.indexOf('index') < 0;
+})
+
+models.forEach(f => {
+    let name = f.substring(0, f.length - 3);
+    module.exports[name] = require(__dirname + `/${name}`);
+})
