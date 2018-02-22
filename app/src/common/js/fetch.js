@@ -2,6 +2,8 @@
  * Created by Administrator on 2017/11/9.
  */
 import fetch from 'isomorphic-fetch';
+import HttpMethod from '../../constants/httpMethod';
+import querystring from 'querystring'
 
 export default function request(url, options = {}) {
     options = {
@@ -13,15 +15,17 @@ export default function request(url, options = {}) {
     };
 
     if (options.queryParams) {
-        url += (url.indexOf('?') === -1 ? '?' : '&') + queryParams(options.queryParams);
+        url += (url.indexOf('?') === -1 ? '?' : '&') + querystring.stringify(options.queryParams);
         delete options.queryParams;
     }
 
-    return fetch(url, options);
-}
+    if (options.method !== HttpMethod.GET) {
+        if (options.contentType.indexOf('application/json') > -1) {
+            options.body = JSON.stringify(options.body);
+        } else if (options.contentType.indexOf('application/x-www-form-urlencoded') > -1) {
+            options.body = querystring.stringify(options.body)
+        }
+    }
 
-function queryParams(params) {
-    return Object.keys(params)
-        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-        .join('&');
+    return fetch(url, options);
 }
