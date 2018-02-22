@@ -8,7 +8,7 @@ const dateToTimestamp = (date) => {
 }
 
 const timestampToDate = (timestamp) => {
-    return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
+    return moment(Number(timestamp)).format('YYYY-MM-DD HH:mm:ss')
 }
 
 
